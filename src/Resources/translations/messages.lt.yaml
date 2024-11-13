@@ -1,0 +1,29 @@
+asdoria:
+    menu:
+        admin:
+            main:
+                pictogram_groups:
+                    header: Pictogram Groups
+    ui:
+        pictogram: Pictogram
+        pictograms: Pictograms
+        pictogram_groups: Pictogram Groups
+        pictogram_group: Pictogram Group
+        new_pictogram: New Pictogram
+        new_pictogram_group: New pictogram group
+        edit_pictogram_group: Edit pictogram group
+        edit_pictogram: Edit pictogram
+        manage_pictograms: Managing Pictograms
+    form:
+        pictogram:
+            main_image: Main image
+            pictogram_group: Pictogram group
+            name: Name
+        pictogram_group:
+            name: Name
+            pictograms: Pictograms
+        pictogram_image:
+            file: Image
+        translations:
+            pictogram: Pictogram translations
+            pictogram_group: Pictogram group translations

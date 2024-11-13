@@ -1,0 +1,65 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.pictogram.index#javascripts':
+            pictogram:
+                template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
+                
+        'sylius_admin.pictogram.index#stylesheets':
+            pictogram:
+                template: "@AsdoriaSyliusPictogramPlugin/Admin/_stylesheets.html.twig"
+                
+        'sylius_admin.pictogram.create.content.form.sections':
+            general:
+                template: '@AsdoriaSyliusPictogramPlugin/Admin/Pictogram/_form.html.twig'
+                
+        'sylius_admin.pictogram.update.content.form.sections':
+            general:
+                template: '@AsdoriaSyliusPictogramPlugin/Admin/Pictogram/_form.html.twig'
+                
+        'sylius_admin.common.update.content.header':
+            breadcrumbs:
+                template: '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/Update/_breadcrumb.html.twig'
+                
+        'sylius_admin.common.update.content.header.title_block.actions':
+            show:
+                enabled: false
+           
+        'sylius_admin.pictogram_group.index#javascripts':
+            pictogram:
+                template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
+                
+        'sylius_admin.pictogram_group.create.content.form.sections':
+            general:
+                template: '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/_form.html.twig'        
+        
+        'sylius_admin.pictogram_group.update.content.form.sections':
+            general:
+                template: '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/_form.html.twig'
+        
+        'sylius_admin.product.create#javascripts':
+             pictogram:
+                 template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
+                 
+        'sylius_admin.product.create#stylesheets':
+            pictogam:
+                template: "@AsdoriaSyliusPictogramPlugin/Admin/_stylesheets.html.twig"
+
+        'sylius_admin.product.update#javascripts':
+            pictogram:
+                template: "@AsdoriaSyliusPictogramPlugin/Admin/_javascripts.html.twig"
+        
+        'sylius_admin.product.update#stylesheets':
+            pictogam:
+                template: "@AsdoriaSyliusPictogramPlugin/Admin/_stylesheets.html.twig"
+                
+        'sylius_admin.product.update.content.form.side_navigation':
+            pictograms:
+                template: '@AsdoriaSyliusPictogramPlugin/Admin/Product/Sidebar/pictograms.html.twig'
+                
+        'sylius_admin.product.update.content.form.sections':
+            pictograms:
+                template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/Section/pictograms.html.twig"
+        
+        'sylius_admin.product.update.content.form.sections.pictograms':
+            pictograms_collection:
+                template: "@AsdoriaSyliusPictogramPlugin/Admin/Product/Section/pictograms_collection.html.twig"

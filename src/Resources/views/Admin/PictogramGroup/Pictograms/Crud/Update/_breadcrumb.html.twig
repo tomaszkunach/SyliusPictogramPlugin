@@ -1,13 +1,21 @@
-{% import '@SyliusAdmin/Macro/breadcrumb.html.twig' as breadcrumb %}
+{% from '@SyliusAdmin/shared/helper/breadcrumbs.html.twig' import breadcrumbs %}
 
-{% set breadcrumbs = [
-        { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
-        { label: 'asdoria.ui.pictogram_groups'|trans , url: path('asdoria_admin_pictogram_group_index')},
-        { label: resource.pictogramGroup.name, url: path('asdoria_admin_pictogram_group_update', {'id': resource.pictogramGroup.id}) },
-        { label: 'asdoria.ui.pictograms'|trans, url: path('asdoria_admin_pictogram_group_pictograms_index', {'pictogramGroupId': resource.pictogramGroup.id}) },
-        { label: resource.name },
-        { label: 'sylius.ui.edit'|trans }
-    ]
-%}
+{% set configuration = hookable_metadata.context.configuration %}
+{% set resource = hookable_metadata.context.resource %}
+{% set metadata = hookable_metadata.context.metadata %}
 
-{{ breadcrumb.crumble(breadcrumbs) }}
+{% set resource_index = metadata.applicationName~'.ui.'~metadata.pluralName %}
+{% set index_url = path(
+    configuration.vars.index.route.name|default(configuration.getRouteName('index')),
+    configuration.vars.index.route.parameters|default(configuration.vars.route.parameters|default({}))
+) %}
+
+{% set rendered_field_prefix = hookable_metadata.configuration.rendered_field_prefix|default(null) %}
+{% set field_name = hookable_metadata.configuration.rendered_field|default('') %}
+{% set rendered_field = rendered_field_prefix ~ (attribute(resource, field_name) is defined ? attribute(resource, field_name) : null) %}
+
+{{ breadcrumbs([
+    { name: 'sylius.ui.dashboard', url: path('sylius_admin_dashboard'), active: false },
+    { name: resource_index, url: index_url, active: false },
+    { name: 'sylius.ui.edit'|trans, active: false }
+]) }}

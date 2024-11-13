@@ -1,15 +1,33 @@
-{% form_theme form '@AsdoriaSyliusPictogramPlugin/Form/imagesTheme.html.twig' %}
-{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+{% if form is not defined %}
+    {% set form = hookable_metadata.context.form %}
+{% endif %}
 
-{{ form_errors(form) }}
-<div class="ui segment">
-    {{ form_row(form.code) }}
-    {{ form_row(form.pictogramGroup) }}
-    <div class="field">
-        {{ translationForm(form.translations) }}
+{% import '@SyliusAdmin/shared/helper/translations.html.twig' as translations %}
+
+<div class="col">
+    {{ form_errors(form) }}
+
+    <div class="row">
+        {{ form_row(form.code) }}
     </div>
-    <div class="field" id="sylius_pictogram_image">
-        <label class="required"> {{ 'sylius.ui.image'|trans }}</label>
-        {{ form_widget(form.image, {'label': false}) }}
+    <div class="row">
+        {{ form_row(form.pictogramGroup) }}
+    </div>
+    <div class="row">
+        <div class="tab-pane {% if hookable_metadata.configuration.active|default(false) %}show active{% endif %}" id="pictogram-translations" role="tabpanel" tabindex="0">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        {{ 'asdoria.form.translations.pictogram'|trans }}
+                    </h2>
+                </div>
+                <div>
+                    {{ translations.default(form.translations, null, {accordion_id: 'pictogram-translations', accordion_flush: true}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{ form_widget(form.image) }}
     </div>
 </div>

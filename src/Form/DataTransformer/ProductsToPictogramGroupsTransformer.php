@@ -55,7 +55,7 @@ class ProductsToPictogramGroupsTransformer implements DataTransformerInterface
     /**
      * {@inheritdoc}
      */
-    public function transform($pictograms)
+    public function transform($pictograms): mixed
     {
         $this->setPictograms($pictograms);
 

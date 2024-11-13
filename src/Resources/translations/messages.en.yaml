@@ -3,23 +3,27 @@ asdoria:
         admin:
             main:
                 pictogram_groups:
-                    header: Pictogram Groups
+                    header: Piktogramų grupės
     ui:
-        pictograms: Pictograms
-        pictogram_groups: Pictogram Groups
-        pictogram_group: Pictogram Group
-        new_pictogram: New Pictogram
-        new_pictogram_group: New pictogram group
-        edit_pictogram_group: Edit pictogram group
-        edit_pictogram: Edit pictogram
-        manage_pictograms: Managing Pictograms
+        pictogram: Piktograma
+        pictograms: Piktogramos
+        pictogram_groups: Piktogramų grupės
+        pictogram_group: Piktogramų grupė
+        new_pictogram: Nauja piktograma
+        new_pictogram_group: Nauja piktogramų grupė
+        edit_pictogram_group: Redaguoti piktogramų grupę
+        edit_pictogram: Redaguoti piktogramą
+        manage_pictograms: Piktogramų tvarkymas
     form:
         pictogram:
-            main_image: Main image
-            pictogram_group: Pictogram group
-            name: Name
+            main_image: Pagrindinis vaizdas
+            pictogram_group: Piktogramų grupė
+            name: Vardas
         pictogram_group:
-            name: Name
-            pictograms: Pictograms
+            name: Vardas
+            pictograms: Piktogramos
         pictogram_image:
-            file: Image
+            file: Vaizdas
+        translations:
+            pictogram: Piktogramų vertimai
+            pictogram_group: Piktogramų grupių vertimai

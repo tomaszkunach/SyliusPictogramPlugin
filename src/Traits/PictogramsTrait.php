@@ -6,9 +6,11 @@ namespace Asdoria\SyliusPictogramPlugin\Traits;
 
 use Asdoria\SyliusPictogramPlugin\Entity\Pictogram;
 use Asdoria\SyliusPictogramPlugin\Model\PictogramInterface;
+use Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\OneToMany;
 
 /**
  * Trait PictogramsTrait
@@ -18,16 +20,14 @@ trait PictogramsTrait
 {
     /**
      * @var Collection
-     *
-     * @ORM\ManyToMany(
-     *      targetEntity="Asdoria\SyliusPictogramPlugin\Model\PictogramInterface",
-     *      inversedBy="products")
-     * @ORM\JoinTable(
-     *      name="asdoria_products_pictograms",
-     *      joinColumns={@ORM\JoinColumn(name="product_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="pictogram_id", referencedColumnName="id")}
-     *      )
      */
+    #[ORM\ManyToMany(
+        targetEntity: PictogramInterface::class,
+        inversedBy: 'products',
+    )]
+    #[ORM\JoinTable(name: 'asdoria_products_pictograms')]
+    #[ORM\JoinColumn(name: 'product_id', referencedColumnName: 'id')]
+    #[ORM\InverseJoinColumn(name: 'pictogram_id', referencedColumnName: 'id')]
     protected Collection $pictograms;
 
     /**

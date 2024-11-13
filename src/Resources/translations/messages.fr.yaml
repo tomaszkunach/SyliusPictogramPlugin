@@ -5,6 +5,7 @@ asdoria:
                 pictogram_groups:
                     header: Groupe de Pictogramme
     ui:
+        pictogram: Pictogramme
         pictograms: Pictogrammes
         pictogram_groups: Groupes de pictogramme
         pictogram_group: Groupe de pictogramme
@@ -23,3 +24,6 @@ asdoria:
             pictograms: Pictogrammes
         pictogram_image:
             file: Image
+        translations:
+            pictogram: Pictogram translations
+            pictogram_group: Pictogram group translations
