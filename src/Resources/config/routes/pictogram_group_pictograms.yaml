@@ -13,7 +13,7 @@ asdoria_admin_pictogram_group_pictograms_index:
                     parameters:
                         pictogramGroupId: $pictogramGroupId
             section: admin
-            template: '@SyliusAdmin/Crud/index.html.twig'
+            template: '@SyliusAdmin/shared/crud/index.html.twig'
 
 asdoria_admin_pictogram_group_pictograms_create:
     path: /pictogram-groups/{pictogramGroupId}/pictograms/new
@@ -26,7 +26,7 @@ asdoria_admin_pictogram_group_pictograms_create:
                 parameters:
                     pictogramGroupId: $pictogramGroupId
             section: admin
-            template: '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/create.html.twig'
+            template: '@SyliusAdmin/shared/crud/create.html.twig'
             factory:
                 method: createForPictogramGroup
                 arguments:
@@ -41,8 +41,11 @@ asdoria_admin_pictogram_group_pictograms_create:
                     name: asdoria_admin_pictogram_group_pictograms_create
                     parameters:
                         pictogramGroupId: $pictogramGroupId
-                templates:
-                    form: '@AsdoriaSyliusPictogramPlugin/Admin/Pictogram/_form.html.twig'
+                index:
+                    route:
+                        name: asdoria_admin_pictogram_group_pictograms_index
+                        parameters:
+                            pictogramGroupId: $pictogramGroupId
 
 asdoria_admin_pictogram_group_pictograms_update:
     path: /pictogram-groups/{pictogramGroupId}/pictograms/{id}/edit
@@ -55,7 +58,7 @@ asdoria_admin_pictogram_group_pictograms_update:
                 parameters:
                     pictogramGroupId: $pictogramGroupId
             section: admin
-            template: '@AsdoriaSyliusPictogramPlugin/Admin/PictogramGroup/Pictograms/Crud/update.html.twig'
+            template: '@SyliusAdmin/shared/crud/update.html.twig'
             form:
                 type: Asdoria\SyliusPictogramPlugin\Form\Type\PictogramType
                 options:
@@ -67,8 +70,11 @@ asdoria_admin_pictogram_group_pictograms_update:
                     parameters:
                         pictogramGroupId: $pictogramGroupId
                         id: $id
-                templates:
-                    form: '@AsdoriaSyliusPictogramPlugin/Admin/Pictogram/_form.html.twig'
+                index:
+                    route:
+                        name: asdoria_admin_pictogram_group_pictograms_index
+                        parameters:
+                            pictogramGroupId: $pictogramGroupId
 
 asdoria_admin_pictogram_group_pictograms_delete:
     path: /pictogram-groups/{pictogramGroupId}/pictograms/{id}

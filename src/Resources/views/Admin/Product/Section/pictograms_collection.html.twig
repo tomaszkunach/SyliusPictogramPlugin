@@ -1,0 +1,13 @@
+{% set form = hookable_metadata.context.form  %}
+{% set pictograms = hookable_metadata.context.form.pictograms %}
+{% set product = hookable_metadata.context.product %}
+
+{% form_theme form '@AsdoriaSyliusPictogramPlugin/Form/pictogramTheme.html.twig' %}
+
+<div
+    class="row"
+    {{ sylius_test_html_attribute('pictograms') }}
+    {{ sylius_test_html_attribute('pictogram-subforms') }}
+>
+    {{ form_row(form.pictograms) }}
+</div>

@@ -5,7 +5,7 @@ asdoria_admin_pictogram_group:
     resource: |
         alias: asdoria.pictogram_group
         section: admin
-        templates: "@SyliusAdmin\\Crud"
+        templates: "@SyliusAdmin\\shared\\crud"
         except: ['show']
         redirect: index
         grid: asdoria_admin_pictogram_group

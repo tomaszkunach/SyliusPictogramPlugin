@@ -1,48 +1,16 @@
-{% extends '@SyliusAdmin/Form/theme.html.twig' %}
-
+{% extends '@SyliusAdmin/shared/form_theme.html.twig' %}
 
 {% block pictogram_choice_widget -%}
     <div {{ block('widget_container_attributes') }}>
         {% for group_label, group in choices %}
         {%- if group is iterable -%}
             <label><b>{{ group_label|trans({}, translation_domain) }}</b></label>
-            <div class="grouped fields pictograms">
+            <div class="row row-cols-auto pictograms">
 
             {% for key, choice in group %}
-                <div class="field pictogram" >
-
+                <div class="col field pictogram" >
                     {% set child     =  form[key] %}
-                    {% set pictogram = getPictogramForId(child.vars.value) %}
-                        {% set path = 'http://placehold.it/200x200' %}
-                    {% if  pictogram.image is not null %}
-                        {% set path = pictogram.image.path|imagine_filter(filter|default('sylius_small')) %}
-                    {% endif %}
-                        <div class="ui toggle checkbox" data-img="{{ path }}">
-                            {% if not compound -%}
-                                {% set label_attr = label_attr|merge({'for': id}) %}
-                            {%- endif -%}
-                            {% if required -%}
-                                {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
-                            {%- endif -%}
-                            {% set label_attr = label_attr|merge({'data-img': path|default('')|trim}) %}
-                            {% if label is empty -%}
-                                {%- if label_format is not empty -%}
-                                    {% set label = label_format|replace({
-                                        '%name%': name,
-                                        '%id%': id,
-                                    }) %}
-                                {%- else -%}
-                                    {% set label = name|humanize %}
-                                {%- endif -%}
-                            {%- endif -%}
-                            <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-                            <div>
-                                <img src="{{ path }}">
-                            </div>
-                            </label>
-
-                            {{- form_widget(child) -}}
-                        </div>
+                    {{ form_widget(child, {'attr': {'class': 'd-none'}}) }}
                 </div>
             {% endfor -%}
             </div>
@@ -50,3 +18,39 @@
     {% endfor %}
     </div>
 {%- endblock pictogram_choice_widget %}
+
+{% block _sylius_admin_product_pictograms_entry_label %}
+    {% set pictogram = getPictogramForId(form.vars.value) %}
+    {% set path = 'http://placehold.it/200x200' %}
+    {% if  pictogram.image is not null %}
+        {% set path = pictogram.image.path|imagine_filter(filter|default('sylius_small')) %}
+    {% endif %}
+
+    {%- if widget is defined -%}
+
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif -%}
+        {% set label_attr = label_attr|merge({'data-img': path|default('')|trim}) %}
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                    '%name%': name,
+                    '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+        {{ widget|raw }}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+            <div>
+                <img src="{{ path }}">
+            </div>
+            {{- form_errors(form) -}}
+        </label>
+    {%- endif -%}
+{% endblock %}

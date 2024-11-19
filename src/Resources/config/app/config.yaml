@@ -23,9 +23,19 @@ liip_imagine:
             filters:
                 thumbnail:
                     size: [ 85, 85 ]
-jms_serializer:
-    metadata:
-        directories:
-            asdoria-pictogram:
-                namespace_prefix: "Asdoria\\SyliusPictogramPlugin\\PictogramBundle\\Entity"
-                path: "@AsdoriaSyliusPictogramPlugin/Resources/config/serializer"
+        sylius_admin_pictogram_thumbnail_small:
+            quality: 70
+            filters:
+                thumbnail:
+                    size: [ 25, 25 ]
+                    mode: outbound
+        sylius_shop_pictogram_thumbnail_medium:
+            quality: 70
+            filters:
+                thumbnail:
+                    size: [ 45, 45 ]
+        sylius_shop_pictogram_thumbnail_small:
+            quality: 70
+            filters:
+                thumbnail:
+                    size: [ 35, 35 ]

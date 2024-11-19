@@ -1,0 +1,18 @@
+asdoria:
+    ui:
+        pictogram:
+            group:
+                not_blank: Piktograma turi būti susieta su grupe.
+            image:
+                not_blank: Piktogramoje turi būti atvaizdas, iliustruojantis save.
+        pictogram_group:
+            code:
+                unique: Šis kodas jau užimtas.
+                not_blank: Laukas „Kodas“ negali būti tuščias.
+        pictogram_group_translation:
+            name:
+                unique: Vardas jau užimtas.
+                not_blank: Laukas „Vardas“ negali būti tuščias.
+        image:
+            path:
+                not_blank: Turite įkelti vaizdą.

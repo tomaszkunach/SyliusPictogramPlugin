@@ -9,6 +9,7 @@
 .pictograms {
   display: flex !important;
   flex-wrap: wrap;
+  margin: 0.75rem 0;
 }
 
 .pictograms .field > div {
@@ -22,7 +23,7 @@
   height: 100%;
   text-align: center;
   padding: 10px !important;
-  margin-left: 4.5rem;
+  margin-left: 2rem;
   border: solid 1px #d2d2d2;
 }
 
