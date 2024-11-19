@@ -1,12 +1,10 @@
-{% from '@SyliusAdmin/shared/helper/icon.html.twig' import icon %}
-
 <form class="asdoria-update-pictograms"
       action="{{ path('asdoria_admin_ajax_pictograms_update_position') }}"
       method="post"
       data-csrf-token="{{ csrf_token('update-pictogram-position') }}"
 >
     <button class="btn" type="submit">
-        {{ icon({ icon: action.icon|default('pencil'), class: 'icon icon-tabler' }) }}
+        {{ ux_icon('tabler:arrow-big-up', { 'class': 'icon icon-tabler' }) }}
         {{ 'sylius.ui.save_positions'|trans }}
     </button>
 </form>
